@@ -1,0 +1,4 @@
+
+*.xml
+build/*
+node-webkit/*
