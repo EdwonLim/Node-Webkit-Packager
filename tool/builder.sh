@@ -48,7 +48,7 @@ fi
 printf '===========================================================\n'
 printf 'Start Package Resources : \n'
 
-if [ -n $1 ]
+if [ ! "-$1" = "-" ]
 then
     cd $1
 else
@@ -61,7 +61,7 @@ printf 'Package Resources Success : build/'$name'.nw\n'
 
 cd $basePath/build
 
-if [ $outputType='all' -o $outputType='mac' ]
+if [ $outputType = 'all' -o $outputType = 'mac' ]
 then
     printf '===========================================================\n'
     if [ -x ../node-webkit/mac/node-webkit.app ]
@@ -95,7 +95,7 @@ then
     fi
 fi
 
-if [ $outputType='all' -o $outputType='win' ]
+if [ $outputType = 'all' -o $outputType = 'win' ]
 then
     printf '===========================================================\n'
     if [ -f ../node-webkit/win/nw.exe ]
