@@ -5,7 +5,7 @@ Node-Webkit-Packager
 
 1.Node-webkit项目目录为`resources`;
 
-2.脚本文件`tool/builder.sh`;
+2.脚本文件`tool/builder.sh`, 参数有一个为Resources绝对路径，不给出，为默认为项目下`resources`目录;
 
 3.将Node-Webkit的核心文件放到`node-webkit`目录下，分`mac`和`win`两个目录，`mac`下应有`node-webkit.app`，而`win`下应有`nw.exe`、`nwsnapshot.exe`、`nw.pak`、`icudt.dll`、`ffmpegsumo.dll`、`libEGL.dll`、`libGLESv2`；
 

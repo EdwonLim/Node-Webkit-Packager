@@ -1,5 +1,7 @@
 #!/bin/bash
 
+basePath=$(cd "$(dirname "$0")"; pwd)'/..'
+
 printf '===========================================================\n'
 printf 'Read Configuration File :\n'
 
@@ -21,14 +23,14 @@ do
     then
         outputType=$value
     fi
-done < ../config/app.config
+done < $basePath/config/app.config
 
 printf '  APPNAME : '$name'\n'
 printf '  APPCLASS : '$packageName'.'$className'\n'
 printf '  APPTYPE : '$outputType'\n'
 printf '  WEBSITE : '$site'\n'
 
-cd ../
+cd $basePath'/'
 
 if [ -x build ]
 then
@@ -45,11 +47,19 @@ fi
 
 printf '===========================================================\n'
 printf 'Start Package Resources : \n'
-cd resources
-zip ../build/$name.nw *
+
+if [ -n $1 ]
+then
+    cd $1
+else
+    cd $basePath/resources
+fi
+printf "  Resources Path : "
+pwd
+zip $basePath/build/$name.nw *
 printf 'Package Resources Success : build/'$name'.nw\n'
 
-cd ../build
+cd $basePath/build
 
 if [ $outputType='all' -o $outputType='mac' ]
 then
