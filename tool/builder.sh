@@ -56,7 +56,7 @@ else
 fi
 printf "  Resources Path : "
 pwd
-zip $basePath/build/$name.nw *
+zip -r $basePath/build/$name.nw *
 printf 'Package Resources Success : build/'$name'.nw\n'
 
 cd $basePath/build
